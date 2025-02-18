@@ -31,11 +31,12 @@ while True:
 
     # Se a letra digitada está na palavra
     if letra.lower() in palavra_sorteada.lower():
-        lista = list(palavra_escondida)
-        for indice in range(len(palavra_sorteada)):
-            if letra.lower() == palavra_sorteada[indice].lower():
-                lista[indice] = palavra_sorteada[indice]
-        palavra_escondida = ''.join(lista)
+        # lista = list(palavra_escondida)
+        # for indice in range(len(palavra_sorteada)):
+        #     if letra.lower() == palavra_sorteada[indice].lower():
+        #         lista[indice] = palavra_sorteada[indice]
+        # palavra_escondida = ''.join(lista)
+        palavra_escondida = ''.join(letra if letra == palavra_sorteada[indice] else palavra_escondida[indice] for indice in range(len(palavra_sorteada)))
     else:
         max_tentativas -= 1
         print(f'Letra não encontrada. Você tem {max_tentativas} tentativas.')
